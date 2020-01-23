@@ -10,8 +10,7 @@
         android:id="@+id/profilePicture"
         android:layout_width="@dimen/profile_picture_width"
         android:layout_height="@dimen/profile_picture_height"
-
-        android:src="@drawable/user_profile"
+        android:src="@drawable/add_image"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />

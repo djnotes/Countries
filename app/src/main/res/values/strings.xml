@@ -2,4 +2,7 @@
     <string name="app_name">Countries</string>
     <string name="profile">Profile</string>
     <string name="storage_permission_justification">Please allow the application to access storage to change the image.</string>
+    <string name="file_not_found">File not found</string>
+    <string name="unable_to_access_file">Unable to access the file</string>
+    <string name="picture_successfully_updated">Profile picture was successfully updated</string>
 </resources>
