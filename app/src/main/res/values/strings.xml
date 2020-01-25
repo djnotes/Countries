@@ -5,4 +5,5 @@
     <string name="file_not_found">File not found</string>
     <string name="unable_to_access_file">Unable to access the file</string>
     <string name="picture_successfully_updated">Profile picture was successfully updated</string>
+    <string name="country_name">Country Name</string>
 </resources>

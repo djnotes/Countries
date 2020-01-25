@@ -36,4 +36,5 @@
     <!-- Profile Image width and height -->
     <dimen name="profile_picture_width">100dp</dimen>
     <dimen name="profile_picture_height">100dp</dimen>
+    <dimen name="list_margin">8dp</dimen>
 </resources>
