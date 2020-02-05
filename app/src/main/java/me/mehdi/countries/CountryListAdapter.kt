@@ -1,6 +1,5 @@
 package me.mehdi.countries
 
-import android.app.Application
 import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
@@ -9,18 +8,18 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import me.mehdi.countries.db.Country
-import me.mehdi.countries.db.CountryRepository
 
 class CountryListAdapter internal constructor(
     context: Context
 ): RecyclerView.Adapter<CountryListAdapter.ViewHolder> (){
 
-    val inflater = LayoutInflater.from(context)
+    private val inflater = LayoutInflater.from(context)
     private var countries = emptyList<Country>()
+    lateinit var itemClickListener: OnItemClickListener
 
     inner class ViewHolder(view: View) : RecyclerView.ViewHolder (view){
-        val title = view.findViewById<TextView>(R.id.itemTitle)
-        val image = view.findViewById<ImageView>(R.id.itemImage)
+        val title: TextView? = view.findViewById(R.id.itemTitle)
+        val image: ImageView?  = view.findViewById(R.id.itemImage)
 
 
     }
@@ -35,14 +34,21 @@ class CountryListAdapter internal constructor(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        holder.title.text = countries[position].name
-//        holder.image.setImageResource(countries[position].imageUri)
+        holder.title!!.text = countries[position].name
+        //holder.image.setImageResource(countries[position].imageUri)
+        holder.image?.setOnClickListener{
+            itemClickListener.onClick(position)
+        }
 
     }
 
     public fun setCountries(countries: List<Country>) {
         this.countries = countries
         notifyDataSetChanged()
+    }
+
+    interface OnItemClickListener{
+        fun onClick(position: Int);
     }
 
 }

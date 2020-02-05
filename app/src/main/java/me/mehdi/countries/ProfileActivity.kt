@@ -9,14 +9,19 @@ import android.net.Uri
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.ParcelFileDescriptor
+import android.provider.BaseColumns
 import android.util.Log
 import android.view.View
 import android.widget.ImageView
+import android.widget.TextView
 import android.widget.Toast
 import androidx.core.app.ActivityCompat
 import androidx.core.content.ContextCompat
 import androidx.core.content.edit
 import com.google.android.material.snackbar.Snackbar
+import me.mehdi.countries.db.CountryDb_Impl
+import me.mehdi.countries.sqlite.CountryContract
+import me.mehdi.countries.sqlite.MyCountriesDbHelper
 import java.io.FileDescriptor
 import java.io.FileNotFoundException
 
@@ -75,6 +80,17 @@ class ProfileActivity : AppCompatActivity() {
             profilePicture.setImageBitmap(bitmap)
 
         }
+
+        val numOfCountries : TextView = findViewById(R.id.numberOfCountries)
+        val db = MyCountriesDbHelper(this).readableDatabase
+        val projection = arrayOf(BaseColumns._ID, CountryContract.COLUMN_COUNTRY_NAME, CountryContract.COLUMN_COUNTRY_CAPITAL)
+        val selection = null
+        val args = null
+        val sortOrder = "${BaseColumns._ID} DESC"
+        val cursor = db.query(CountryContract.TABLE_COUNTRIES, projection, selection, args, null, null, sortOrder)
+        numOfCountries.text = "${cursor.count}"
+
+        cursor.close()
 
 
 

@@ -6,4 +6,9 @@
     <string name="unable_to_access_file">Unable to access the file</string>
     <string name="picture_successfully_updated">Profile picture was successfully updated</string>
     <string name="country_name">Country Name</string>
+    <string name="num_of_countries">Number of Countries:</string>
+    <string name="capital">Capital</string>
+    <string name="add">Add</string>
+    <string name="fill_in_required_fields">Please fill in the required fields</string>
+    <string name="item_added_successfully">Item was added successfully</string>
 </resources>
